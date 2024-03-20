@@ -46,7 +46,7 @@ run_check() {
     if bash -c "$cmd"; then  # Run the command itself and check if it succeeded.
         succeeded="$succeeded $check_name"
     else
-        docker compose logs --tail 500 "$service"  # Just show recent logs, not all history
+        docker-compose logs --tail 500 "$service"  # Just show recent logs, not all history
         failed="$failed $check_name"
     fi
     set -e  # Re-enable exit-on-error
@@ -67,7 +67,7 @@ mysql_run_check() {
     # By specifying that mysql should use TCP, we won't get an early false
     # positive "ready" response while the temporary server is running.
     run_check "${container_name}_query" "$container_name" \
-        "docker compose exec -T $(printf %q "$container_name") mysql --protocol tcp -uroot -se $(printf %q "$mysql_probe")"
+        "docker-compose exec -T $(printf %q "$container_name") mysql --protocol tcp -uroot -se $(printf %q "$mysql_probe")"
 }
 
 if should_check mysql57; then
@@ -83,7 +83,7 @@ fi
 if should_check mongo; then
     echo "Checking MongoDB status:"
     run_check mongo_status mongo \
-        "docker compose exec -T mongo mongo --eval \"db.serverStatus()\""
+        "docker-compose exec -T mongo mongo --eval \"db.serverStatus()\""
 fi
 
 if should_check registrar; then
