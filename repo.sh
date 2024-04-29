@@ -139,6 +139,8 @@ _clone ()
         else
             if [ -n "${OPENEDX_GIT_BRANCH:-}" ]; then
                 CLONE_BRANCH="-b ${OPENEDX_GIT_BRANCH}"
+            elif [[ "${repo}" == *"openedx/ecommerce"* ]]; then
+                CLONE_BRANCH="-b 2u/main"
             else
                 CLONE_BRANCH=""
             fi
