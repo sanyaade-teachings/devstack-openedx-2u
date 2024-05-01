@@ -103,7 +103,7 @@ _checkout ()
         # If a directory exists and it is nonempty, assume the repo has been cloned.
         if [ -d "$name" ] && [ -n "$(ls -A "$name" 2>/dev/null)" ]; then
             cd "$name"
-            _checkout_and_update_branch
+            _checkout_and_update_branch "${repo}"
             cd ..
         fi
     done
@@ -134,7 +134,7 @@ _clone ()
             fi
             printf "The [%s] repo is already checked out. Checking for updates.\n" "$name"
             cd "${DEVSTACK_WORKSPACE}/${name}"
-            _checkout_and_update_branch
+            _checkout_and_update_branch "${repo}"
             cd ..
         else
             if [ -n "${OPENEDX_GIT_BRANCH:-}" ]; then
@@ -156,10 +156,13 @@ _clone ()
 
 _checkout_and_update_branch ()
 {
+    local current_repo=$1
     GIT_SYMBOLIC_REF="$(git symbolic-ref HEAD 2>/dev/null)"
     BRANCH_NAME=${GIT_SYMBOLIC_REF##refs/heads/}
     if [ -n "${OPENEDX_GIT_BRANCH}" ]; then
         CHECKOUT_BRANCH=${OPENEDX_GIT_BRANCH}
+    elif [[ "${current_repo}" == *"openedx/ecommerce"* ]]; then
+        CHECKOUT_BRANCH="2u/main"
     else
         CHECKOUT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
     fi
