@@ -26,6 +26,7 @@ services:
   lms:
     volumes:
       - ${DEVSTACK_WORKSPACE}/edx-platform:/edx/app/edxapp/edx-platform
+      - ${PWD}/envs/lms.py:/edx/app/edxapp/edx-platform/lms/envs/devstack.py
       - edxapp_media:/edx/var/edxapp/media
       - edxapp_node_modules:/edx/app/edxapp/edx-platform/node_modules
       - edxapp_tox:/edx/app/edxapp/edx-platform/.tox
@@ -44,6 +45,7 @@ services:
   cms:
     volumes:
       - ${DEVSTACK_WORKSPACE}/edx-platform:/edx/app/edxapp/edx-platform
+      - ${PWD}/envs/cms.py:/edx/app/edxapp/edx-platform/cms/envs/devstack.py
       - edxapp_media:/edx/var/edxapp/media
       - edxapp_node_modules:/edx/app/edxapp/edx-platform/node_modules
       - edxapp_tox:/edx/app/edxapp/edx-platform/.tox
