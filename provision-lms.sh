@@ -75,7 +75,7 @@ done
 
 
 # Fix missing vendor file by clearing the cache
-docker compose exec -T  lms bash -e -c 'rm /edx/app/edxapp/edx-platform/.prereqs_cache/Node_prereqs.sha1'
+# docker compose exec -T  lms bash -e -c 'rm /edx/app/edxapp/edx-platform/.prereqs_cache/Node_prereqs.sha1'
 
 # Create static assets for both LMS and CMS
 for app in "${apps[@]}"; do
