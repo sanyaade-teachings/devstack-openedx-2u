@@ -39,6 +39,9 @@ services:
   registrar:
     volumes:
       - ${DEVSTACK_WORKSPACE}/registrar:/edx/app/registrar
+  designer:
+    volumes:
+      - ${DEVSTACK_WORKSPACE}/portal-designer:/edx/app/designer
   registrar-worker:
     volumes:
       - ${DEVSTACK_WORKSPACE}/registrar:/edx/app/registrar
