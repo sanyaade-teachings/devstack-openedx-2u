@@ -747,7 +747,7 @@ services:
     stdin_open: true
     tty: true
 
-  enterprise-catalog-curations_worker:
+  enterprise-catalog-curations-worker:
     image: edxops/enterprise-catalog-dev
     command: bash -c 'cd /edx/app/enterprise_catalog/enterprise_catalog && celery -A enterprise_catalog worker -Q enterprise_catalog.curations -l DEBUG'
     container_name: enterprise.catalog.curations
@@ -986,4 +986,3 @@ volumes:
   mysql57_data:
   mysql80_data:
   redis_data:
-  enterprise_catalog_mysql8:

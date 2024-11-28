@@ -77,7 +77,7 @@ services:
   enterprise-catalog-worker:
     volumes:
       - ${DEVSTACK_WORKSPACE}/enterprise-catalog:/edx/app/enterprise_catalog/enterprise_catalog
-  enterprise-catalog-curations_worker:
+  enterprise-catalog-curations-worker:
     volumes:
       - ${DEVSTACK_WORKSPACE}/enterprise-catalog:/edx/app/enterprise_catalog/enterprise_catalog
   # Note that frontends mount `src` to /edx/app/src instead of /edx/src.
