@@ -694,7 +694,7 @@ services:
           - edx.devstack.xqueue_consumer
 
   designer:
-    image: portal-designer-designer
+    image: edxops/designer-dev:latest # this image doesn't exist on dockerhub yet
     container_name: edx.devstack.designer
     volumes:
       - .:/edx/app/designer
