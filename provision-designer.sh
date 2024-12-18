@@ -9,7 +9,7 @@ docker-compose up -d lms
 
 # Wait for MySQL
 echo "Waiting for MySQL"
-until docker exec -i designer.mysql mysql -u root -se "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'root')" &> /dev/null
+until docker exec -i edx.devstack.mysql80 mysql -u root -se "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'root')" &> /dev/null
 do
   printf "."
   sleep 1
