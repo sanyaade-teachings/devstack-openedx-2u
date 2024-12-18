@@ -17,4 +17,4 @@ docker compose exec -T ${name} bash -c "echo 'from django.contrib.auth import ge
 ./provision-ida-user.sh ${name} ${name} ${port}
 
 # Restart enterprise.catalog app and worker containers
-docker-compose restart enterprise-catalog enterprise-catalog-worker
+docker compose restart enterprise-catalog enterprise-catalog-worker
