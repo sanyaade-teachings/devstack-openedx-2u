@@ -1,11 +1,11 @@
 name="designer"
 port="18808"
 
-docker-compose up -d $name --build
-docker-compose up -d lms
+docker compose up -d $name --build
+docker compose up -d lms
 
 # Install requirements
-# Can be skipped right now because we're using the --build flag on docker-compose. This will need to be changed once we move to devstack.
+# Can be skipped right now because we're using the --build flag on docker compose. This will need to be changed once we move to devstack.
 
 # Wait for MySQL
 echo "Waiting for MySQL"
@@ -36,4 +36,4 @@ docker exec -t edx.devstack.lms  bash -c "source /edx/app/edxapp/edxapp_env && p
 docker exec -t edx.devstack.lms bash -c "source /edx/app/edxapp/edxapp_env && python /edx/app/edxapp/edx-platform/manage.py lms --settings=devstack_docker create_dot_application --grant-type client-credentials --client-id '${name}-backend-service-key' --client-secret '${name}-backend-service-secret' ${name}-backend-service ${name}_worker"
 
 # Restart designer app
-docker-compose stop designer
+docker compose stop designer
