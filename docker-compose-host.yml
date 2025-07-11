@@ -171,6 +171,21 @@ services:
       - ${DEVSTACK_WORKSPACE}/frontend-app-ora-grading:/edx/app/frontend-app-ora-grading
       - frontend_app_ora_grading_node_modules:/edx/app/frontend-app-ora-grading/node_modules
       - ${DEVSTACK_WORKSPACE}/src:/edx/app/src
+  frontend-app-admin-portal:
+    volumes:
+      - ${DEVSTACK_WORKSPACE}/frontend-app-admin-portal:/edx/app/frontend-app-admin-portal
+      - frontend_app_admin_portal_node_modules:/edx/app/frontend-app-admin-portal/node_modules
+      - ${DEVSTACK_WORKSPACE}/src:/edx/app/src
+  frontend-app-learner-portal-enterprise:
+    volumes:
+      - ${DEVSTACK_WORKSPACE}/frontend-app-learner-portal-enterprise:/edx/app/frontend-app-learner-portal-enterprise
+      - frontend_app_learner_portal_enterprise_node_modules:/edx/app/frontend-app-learner-portal-enterprise/node_modules
+      - ${DEVSTACK_WORKSPACE}/src:/edx/app/src
+  frontend-app-enterprise-checkout:
+    volumes:
+      - ${DEVSTACK_WORKSPACE}/frontend-app-enterprise-checkout:/edx/app/frontend-app-enterprise-checkout
+      - frontend_app_enterprise_checkout_node_modules:/edx/app/frontend-app-enterprise-checkout/node_modules
+      - ${DEVSTACK_WORKSPACE}/src:/edx/app/src
   frontend-app-learner-dashboard:
     volumes:
       - ${DEVSTACK_WORKSPACE}/frontend-app-learner-dashboard:/edx/app/frontend-app-learner-dashboard
@@ -228,6 +243,9 @@ volumes:
   frontend_app_payment_node_modules:
   frontend_app_program_console_node_modules:
   frontend_app_publisher_node_modules:
+  frontend_app_admin_portal_node_modules:
+  frontend_app_learner_portal_enterprise_node_modules:
+  frontend_app_enterprise_checkout_node_modules:
   credentials_tox:
   discovery_tox:
   ecommerce_tox:
