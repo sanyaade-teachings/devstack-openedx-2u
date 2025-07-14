@@ -273,6 +273,10 @@ ENTERPRISE_LEARNER_PORTAL_BASE_URL = 'http://' + ENTERPRISE_LEARNER_PORTAL_NETLO
 ENTERPRISE_ADMIN_PORTAL_NETLOC = 'localhost:1991'
 ENTERPRISE_ADMIN_PORTAL_BASE_URL = 'http://' + ENTERPRISE_ADMIN_PORTAL_NETLOC
 
+########################## ENTERPRISE CHECKOUT ##############################
+ENTERPRISE_CHECKOUT_NETLOC = 'localhost:1989'
+ENTERPRISE_CHECKOUT_BASE_URL = 'http://' + ENTERPRISE_CHECKOUT_NETLOC
+
 ########################## GRADEBOOK APP ##############################
 WRITABLE_GRADEBOOK_URL = 'http://localhost:1994'
 
@@ -312,6 +316,7 @@ LOGIN_REDIRECT_WHITELIST.extend([
     'localhost:1996',  # frontend-app-learner-dashboard
     ENTERPRISE_LEARNER_PORTAL_NETLOC,  # frontend-app-learner-portal-enterprise
     ENTERPRISE_ADMIN_PORTAL_NETLOC,  # frontend-app-admin-portal
+    ENTERPRISE_CHECKOUT_NETLOC,  # frontend-app-enterprise-checkout
 ])
 
 ###################### JWTs ######################
@@ -550,6 +555,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:2002',  # frontend-app-discussions
     'http://localhost:1991',  # frontend-app-admin-portal
     'http://localhost:8734',  # frontend-app-learner-portal-enterprise
+    'http://localhost:1989',  # frontend-app-enterprise-checkout
     'http://localhost:1999',  # frontend-app-authn
     'http://localhost:18450',  # frontend-app-support-tools
     'http://localhost:1994',  # frontend-app-gradebook

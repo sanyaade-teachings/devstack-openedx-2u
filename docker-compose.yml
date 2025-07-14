@@ -1200,6 +1200,60 @@ services:
     depends_on:
       - lms
 
+  frontend-app-admin-portal:
+    extends:
+      file: microfrontend.yml
+      service: microfrontend
+    working_dir: '/edx/app/frontend-app-admin-portal'
+    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.frontend-app-admin-portal"
+    environment:
+      PARAGON_BRAND_PACKAGE: '@edx/brand-edx.org@2.x'
+    networks:
+      default:
+        aliases:
+          - edx.devstack.frontend-app-admin-portal
+    ports:
+      - "1991:1991"
+    depends_on:
+      - lms
+      - enterprise-access
+
+  frontend-app-learner-portal-enterprise:
+    extends:
+      file: microfrontend.yml
+      service: microfrontend
+    working_dir: '/edx/app/frontend-app-learner-portal-enterprise'
+    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.frontend-app-learner-portal-enterprise"
+    environment:
+      PARAGON_BRAND_PACKAGE: '@edx/brand-edx.org@2.x'
+    networks:
+      default:
+        aliases:
+          - edx.devstack.frontend-app-learner-portal-enterprise
+    ports:
+      - "8734:8734"
+    depends_on:
+      - lms
+      - enterprise-access
+
+  frontend-app-enterprise-checkout:
+    extends:
+      file: microfrontend.yml
+      service: microfrontend
+    working_dir: '/edx/app/frontend-app-enterprise-checkout'
+    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.frontend-app-enterprise-checkout"
+    environment:
+      PARAGON_BRAND_PACKAGE: '@edx/brand-edx.org@2.x'
+    networks:
+      default:
+        aliases:
+          - edx.devstack.frontend-app-enterprise-checkout
+    ports:
+      - "1989:1989"
+    depends_on:
+      - lms
+      - enterprise-access
+
 volumes:
   coursegraph_data:
   discovery_assets:

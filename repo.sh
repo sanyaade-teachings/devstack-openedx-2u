@@ -54,6 +54,9 @@ non_release_repos=(
     "https://github.com/openedx/frontend-app-profile.git"
     "https://github.com/openedx/frontend-app-ora-grading.git"
     "https://github.com/openedx/enterprise-subsidy.git"
+    "https://github.com/openedx/frontend-app-admin-portal.git"
+    "https://github.com/openedx/frontend-app-learner-portal-enterprise.git"
+    "https://github.com/edx/frontend-app-enterprise-checkout.git"
     "https://github.com/edx/edx-exams.git"
 )
 
@@ -91,6 +94,9 @@ non_release_ssh_repos=(
     "git@github.com:openedx/frontend-app-profile.git"
     "git@github.com:openedx/frontend-app-ora-grading.git"
     "git@github.com:openedx/enterprise-subsidy.git"
+    "git@github.com:openedx/frontend-app-admin-portal.git"
+    "git@github.com:openedx/frontend-app-learner-portal-enterprise.git"
+    "git@github.com:edx/frontend-app-enterprise-checkout.git"
     "git@github.com:edx/edx-exams.git"
 )
 
